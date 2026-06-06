@@ -1,0 +1,34 @@
+#wyws-dealer-widget { font-family: 'Montserrat', 'Segoe UI', sans-serif; max-width: 800px; margin: 20px auto; background: #fff; border: 1px solid #e1e4e8; border-radius: 8px; box-shadow: 0 4px 15px rgba(0,0,0,0.05); text-align: left; color: #333; }
+.kw-pro-header { padding: 20px 30px; background: #f8f9fa; border-bottom: 1px solid #eee; border-radius: 8px 8px 0 0; display: flex; justify-content: space-between; align-items: center; }
+.kw-pro-title { font-size: 1.2rem; font-weight: 800; color: #003594; text-transform: uppercase; margin: 0; }
+.kw-pro-subtitle { font-size: 0.9rem; color: #666; }
+.kw-pro-content { padding: 30px; }
+.kw-pro-search-group { position: relative; margin-bottom: 30px; }
+.kw-pro-input { width: 100%; padding: 12px 15px; border: 2px solid #ddd; border-radius: 4px; font-size: 16px; outline: none; transition: 0.3s; box-sizing: border-box; }
+.kw-pro-input:focus { border-color: #003594; }
+.kw-pro-suggestions { position: absolute; top: 100%; left: 0; right: 0; background: white; border: 1px solid #ccc; z-index: 100; max-height: 200px; overflow-y: auto; box-shadow: 0 4px 10px rgba(0,0,0,0.1); }
+.kw-pro-suggestion-item { padding: 10px 15px; cursor: pointer; border-bottom: 1px solid #f0f0f0; font-size: 14px; }
+.kw-pro-suggestion-item:hover { background: #f0f7ff; color: #003594; }
+.kw-pro-data-display { background: #eef6fc; border-left: 5px solid #003594; padding: 15px 20px; margin-bottom: 25px; }
+.kw-pro-data-row { display: flex; align-items: baseline; gap: 10px; }
+.kw-pro-data-label { font-weight: bold; color: #555; font-size: 0.9em; text-transform: uppercase; }
+.kw-pro-data-value { font-size: 1.5em; font-weight: 900; color: #003594; }
+.kw-pro-data-unit { color: #666; }
+.kw-pro-form-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-top: 20px; }
+.kw-pro-group { display: flex; flex-direction: column; margin-bottom: 15px; }
+.kw-pro-label { font-size: 0.85rem; font-weight: 700; margin-bottom: 8px; color: #333; }
+.kw-pro-select, .kw-pro-calc-input { padding: 10px; border: 1px solid #ccc; border-radius: 4px; font-size: 14px; width: 100%; box-sizing: border-box; }
+.kw-pro-input-locked { background-color: #f0f0f0; color: #666; cursor: not-allowed; border: 1px solid #dcdcdc; font-family: monospace; }
+.kw-pro-btn { background: #003594; color: white; border: none; padding: 12px 25px; border-radius: 4px; font-weight: bold; cursor: pointer; text-transform: uppercase; letter-spacing: 0.5px; margin-top: 20px; width: 100%; transition: 0.2s; }
+.kw-pro-btn:hover { background: #002a75; }
+.kw-pro-result-box { margin-top: 30px; border: 2px solid #E5007E; border-radius: 6px; overflow: hidden; }
+.kw-pro-result-header { background: #E5007E; color: white; padding: 10px 20px; font-weight: bold; text-transform: uppercase; font-size: 0.9rem; }
+.kw-pro-result-body { padding: 20px; text-align: center; background: #fff; }
+.kw-pro-model-name { font-size: 2rem; font-weight: 900; color: #333; margin: 10px 0; }
+.kw-pro-specs { display: flex; justify-content: center; gap: 30px; margin-bottom: 15px; }
+.kw-pro-spec-item { text-align: center; }
+.kw-pro-spec-val { display: block; font-size: 1.2rem; font-weight: bold; color: #003594; }
+.kw-pro-spec-label { font-size: 0.8rem; color: #777; text-transform: uppercase; }
+.kw-pdf-btn { background: #fff; border: 2px solid #003594; color: #003594; padding: 10px 20px; border-radius: 4px; font-weight: bold; cursor: pointer; text-transform: uppercase; font-size: 0.85rem; margin-top: 20px; transition: 0.2s; display: inline-block; }
+.kw-pdf-btn:hover { background: #f0f7ff; }
+.kw-pro-footer { margin-top: 20px; padding: 15px 30px; border-top: 1px solid #eee; font-size: 11px; color: #999; }
