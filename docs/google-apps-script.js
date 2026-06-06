@@ -20,7 +20,6 @@ function syncDataWithGitHub() {
   // 1. Extraction et formatage de l'onglet Produits
   const sheetProd = ss.getSheetByName("Produits");
   const dataProd = sheetProd.getDataRange().getValues();
-  const headersProd = dataProd[0];
   let jsonProduits = [];
   
   for (let i = 1; i < dataProd.length; i++) {
