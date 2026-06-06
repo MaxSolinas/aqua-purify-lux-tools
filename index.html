@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simulateur de Dimensionnement Aqua Purify</title>
+    <link rel="stylesheet" href="/src/css/style.css">
+</head>
+<body>
+
+    <div id="wyws-dealer-widget" x-data="widget">
+        <div class="kw-pro-header">
+            <div>
+                <h2 class="kw-pro-title">SIMULATEUR DE DIMENSIONNEMENT</h2>
+                <span class="kw-pro-subtitle">Conforme DIN 1988-300</span>
+            </div>
+        </div>
+        
+        <div class="kw-pro-content">
+            <div class="kw-pro-group">
+                <label class="kw-pro-label" style="color:#003594;">RÉFÉRENCE / NOM DU PROJET</label>
+                <input type="text" x-model="projectRef" class="kw-pro-input" placeholder="Ex: Résidence Kennedy...">
+            </div>
+
+            <div class="kw-pro-search-group" x-on:click.outside="showSuggestions = false">
+                <label class="kw-pro-label">LOCALISATION DU PROJET</label>
+                <input type="text" x-model="searchQuery" x-on:input="handleInput" class="kw-pro-input" placeholder="Entrez la commune...">
+                
+                <div class="kw-pro-suggestions" x-show="showSuggestions" x-cloak>
+                    <template x-for="item in suggestions">
+                        <div class="kw-pro-suggestion-item" x-text="item.displayName" x-on:click="selectCommune(item)"></div>
+                    </template>
+                </div>
+            </div>
+
+            <div class="kw-pro-data-display" x-show="techDisplay" x-cloak>
+                <div class="kw-pro-data-row">
+                    <span class="kw-pro-data-label">Dureté Réseau :</span>
+                    <span class="kw-pro-data-value" x-text="currentTH.toFixed(1)"></span>
+                    <span class="kw-pro-data-unit">°f</span>
+                    <span style="margin: 0 10px; color:#ccc;">|</span>
+                    <span class="kw-pro-data-value" x-text="(currentTH * 0.56).toFixed(1)"></span>
+                    <span class="kw-pro-data-unit">°dH</span>
+                </div>
+                <div style="font-size: 0.9em; color:#666; margin-top:5px;" x-text="'Zone : ' + selectedCommuneName"></div>
+            </div>
+
+            <div x-show="stepProject" x-cloak>
+                <div class="kw-pro-group">
+                    <label class="kw-pro-label">TYPE DE BÂTIMENT</label>
+                    <select x-model="buildingType" x-on:change="handleTypeChange" class="kw-pro-select">
+                        <option value="" disabled selected>-- Sélectionner --</option>
+                        <option value="appt">Appartement (Individuel)</option>
+                        <option value="maison">Maison Unifamiliale</option>
+                        <option value="collectif">Immeuble Collectif / Résidence</option>
+                        <option value="pro">Commercial / Horeca</option>
+                    </select>
+                </div>
+
+                <div x-show="showCollectifForm" style="margin-top:25px; padding-top:20px; border-top:1px dashed #ccc;" x-cloak>
+                    <label class="kw-pro-label" style="color:#003594;">PARAMÈTRES DE CALCUL (COLLECTIF)</label>
+                    <div class="kw-pro-form-grid">
+                        <div class="kw-pro-group">
+                            <label class="kw-pro-label">Nombre d'unités (Apparts)</label>
+                            <input type="number" x-model.number="numApts" class="kw-pro-calc-input" min="1">
+                        </div>
+                        <div class="kw-pro-group">
+                            <label class="kw-pro-label">ΣVR/appt (l/s) — DIN 1988-300</label>
+                            <input type="text" value="0.72" class="kw-pro-calc-input kw-pro-input-locked" disabled>
+                        </div>
+                    </div>
+                    <button x-on:click="calculate" class="kw-pro-btn">Calculer le débit de pointe</button>
+                </div>
+            </div>
+
+            <div class="kw-pro-result-box" x-show="resultBox" x-cloak>
+                <div class="kw-pro-result-header">Préconisation Technique</div>
+                <div class="kw-pro-result-body">
+                    <div class="kw-pro-specs" x-show="buildingType === 'collectif'">
+                        <div class="kw-pro-spec-item">
+                            <span class="kw-pro-spec-val" x-text="resultFlow"></span>
+                            <span class="kw-pro-spec-label">Débit Pointe (m³/h)</span>
+                        </div>
+                        <div class="kw-pro-spec-item">
+                            <span class="kw-pro-spec-val" x-text="resultVol"></span>
+                            <span class="kw-pro-spec-label">Vol. Journalier (m³)</span>
+                        </div>
+                    </div>
+                    <div style="color:#666; font-size:0.9rem; margin-top:15px;">Modèle Recommandé :</div>
+                    <div class="kw-pro-model-name" x-text="resultModel"></div>
+                    <div style="margin-top:20px;">
+                        <button x-on:click="downloadPdf" class="kw-pdf-btn">📄 Télécharger le Rapport PDF</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="kw-pro-footer">
+            Outil réservé aux partenaires Aqua Purify. Calculs basés sur DIN 1988-300.<br>
+            Données de dureté : Administration de la gestion de l'eau (Luxembourg).
+        </div>
+    </div>
+
+    <script type="module" src="/src/js/app.ts"></script>
+</body>
+</html>
