@@ -1,1 +1,1081 @@
-{}
+{
+  "Beggen": {
+    "th": 27.9,
+    "city": "Luxembourg"
+  },
+  "Belair": {
+    "th": 28.8,
+    "city": "Luxembourg"
+  },
+  "Belair-Nord": {
+    "th": 28.8,
+    "city": "Luxembourg"
+  },
+  "Bonnevoie-Nord": {
+    "th": 32,
+    "city": "Luxembourg"
+  },
+  "Verlorenkost": {
+    "th": 32,
+    "city": "Luxembourg"
+  },
+  "Cents": {
+    "th": 27.4,
+    "city": "Luxembourg"
+  },
+  "Cessange": {
+    "th": 28.8,
+    "city": "Luxembourg"
+  },
+  "Clausen": {
+    "th": 27.9,
+    "city": "Luxembourg"
+  },
+  "Dommeldange": {
+    "th": 27.9,
+    "city": "Luxembourg"
+  },
+  "Eich": {
+    "th": 26.3,
+    "city": "Luxembourg"
+  },
+  "Gare": {
+    "th": 32,
+    "city": "Luxembourg"
+  },
+  "Gasperich": {
+    "th": 23.1,
+    "city": "Luxembourg"
+  },
+  "Grund": {
+    "th": 27.4,
+    "city": "Luxembourg"
+  },
+  "Hamm": {
+    "th": 27.4,
+    "city": "Luxembourg"
+  },
+  "Hollerich": {
+    "th": 31.9,
+    "city": "Luxembourg"
+  },
+  "Kirchberg": {
+    "th": 27.4,
+    "city": "Luxembourg"
+  },
+  "Limpertsberg": {
+    "th": 30.1,
+    "city": "Luxembourg"
+  },
+  "Merl": {
+    "th": 31.9,
+    "city": "Luxembourg"
+  },
+  "Muhlenbach": {
+    "th": 26.3,
+    "city": "Luxembourg"
+  },
+  "Neudorf": {
+    "th": 27.4,
+    "city": "Luxembourg"
+  },
+  "Weimershof": {
+    "th": 27.4,
+    "city": "Luxembourg"
+  },
+  "Pfaffenthal": {
+    "th": 27.9,
+    "city": "Luxembourg"
+  },
+  "Pulvermuhl": {
+    "th": 32,
+    "city": "Luxembourg"
+  },
+  "Rollingergrund": {
+    "th": 28.8,
+    "city": "Luxembourg"
+  },
+  "Ville-Haute": {
+    "th": 28.8,
+    "city": "Luxembourg"
+  },
+  "Weimerskirch": {
+    "th": 27.4,
+    "city": "Luxembourg"
+  },
+  "Beaufort": {
+    "th": 33,
+    "localities": [
+      "Beaufort",
+      "Dillingen"
+    ]
+  },
+  "Bech": {
+    "th": 31,
+    "localities": [
+      "Bech",
+      "Altrier",
+      "Blumenthal",
+      "Geyershof",
+      "Graulinster",
+      "Hemstal",
+      "Hersberg",
+      "Rippig",
+      "Zittig"
+    ]
+  },
+  "Beckerich": {
+    "th": 19,
+    "localities": [
+      "Beckerich",
+      "Elvange",
+      "Hovelange",
+      "Huttange",
+      "Levelange",
+      "Noerdange",
+      "Oberpallen",
+      "Schweich"
+    ]
+  },
+  "Berdorf": {
+    "th": 33,
+    "localities": [
+      "Berdorf",
+      "Bollendorf-Pont",
+      "Grundhof",
+      "Kalkesbach",
+      "Weilerbach"
+    ]
+  },
+  "Bertrange": {
+    "th": 26,
+    "localities": [
+      "Bertrange"
+    ]
+  },
+  "Bettembourg": {
+    "th": 35,
+    "localities": [
+      "Bettembourg",
+      "Abweiler",
+      "Fennange",
+      "Huncherange",
+      "Noertzange"
+    ]
+  },
+  "Bettendorf": {
+    "th": 21,
+    "localities": [
+      "Bettendorf",
+      "Gilsdorf",
+      "Moestroff"
+    ]
+  },
+  "Betzdorf": {
+    "th": 30,
+    "localities": [
+      "Betzdorf",
+      "Berg",
+      "Mensdorf",
+      "Olingen",
+      "Roodt-sur-Syre"
+    ]
+  },
+  "Bissen": {
+    "th": 20,
+    "localities": [
+      "Bissen"
+    ]
+  },
+  "Biwer": {
+    "th": 29,
+    "localities": [
+      "Biwer",
+      "Biwerbach",
+      "Boudler",
+      "Boudlerbach",
+      "Brouch",
+      "Hagelsdorf",
+      "Wecker",
+      "Weydig"
+    ]
+  },
+  "Boulaide": {
+    "th": 16,
+    "localities": [
+      "Boulaide",
+      "Baschleiden",
+      "Surré"
+    ]
+  },
+  "Bourscheid": {
+    "th": 19,
+    "localities": [
+      "Bourscheid",
+      "Goebelsmuehle",
+      "Kehmen",
+      "Lipperscheid",
+      "Michelau",
+      "Scheidel",
+      "Schlindermanderscheid",
+      "Welscheid"
+    ]
+  },
+  "Bous": {
+    "th": 31,
+    "localities": [
+      "Bous",
+      "Assel",
+      "Erpeldange",
+      "Rolling"
+    ]
+  },
+  "Clervaux": {
+    "th": 18,
+    "localities": [
+      "Clervaux",
+      "Drauffelt",
+      "Eselborn",
+      "Fischbach",
+      "Grindhausen",
+      "Heinerscheid",
+      "Hupperdange",
+      "Kalborn",
+      "Lieler",
+      "Marnach",
+      "Munshausen",
+      "Reuler",
+      "Roder",
+      "Siebenaler",
+      "Urspelt",
+      "Weicherdange"
+    ]
+  },
+  "Colmar-Berg": {
+    "th": 20,
+    "localities": [
+      "Colmar-Berg"
+    ]
+  },
+  "Consdorf": {
+    "th": 34,
+    "localities": [
+      "Consdorf",
+      "Breidweiler",
+      "Colbette",
+      "Marscherwald",
+      "Scheidgen"
+    ]
+  },
+  "Contern": {
+    "th": 26,
+    "localities": [
+      "Contern",
+      "Medingen",
+      "Moutfort",
+      "Oetrange"
+    ]
+  },
+  "Dalheim": {
+    "th": 32,
+    "localities": [
+      "Dalheim",
+      "Filsdorf",
+      "Welfrange"
+    ]
+  },
+  "Diekirch": {
+    "th": 20,
+    "localities": [
+      "Diekirch"
+    ]
+  },
+  "Differdange": {
+    "th": 36,
+    "localities": [
+      "Differdange",
+      "Lasauvage",
+      "Niederkorn",
+      "Oberkorn"
+    ]
+  },
+  "Dippach": {
+    "th": 33,
+    "localities": [
+      "Dippach",
+      "Bettange-sur-Mess",
+      "Schouweiler",
+      "Sprinkange"
+    ]
+  },
+  "Dudelange": {
+    "th": 35,
+    "localities": [
+      "Dudelange"
+    ]
+  },
+  "Echternach": {
+    "th": 30,
+    "localities": [
+      "Echternach"
+    ]
+  },
+  "Ell": {
+    "th": 21,
+    "localities": [
+      "Ell",
+      "Colpach-Bas",
+      "Colpach-Haut",
+      "Petit-Nobressart",
+      "Roodt"
+    ]
+  },
+  "Erpeldange-sur-Sûre": {
+    "th": 20,
+    "localities": [
+      "Erpeldange-sur-Sûre",
+      "Burden",
+      "Ingeldorf"
+    ]
+  },
+  "Esch-sur-Alzette": {
+    "th": 35,
+    "localities": [
+      "Esch-sur-Alzette"
+    ]
+  },
+  "Esch-sur-Sûre": {
+    "th": 14,
+    "localities": [
+      "Esch-sur-Sûre",
+      "Eschdorf",
+      "Heiderscheid",
+      "Heiderscheidergrund",
+      "Hierheck",
+      "Merscheid",
+      "Ringel",
+      "Tadler"
+    ]
+  },
+  "Ettelbruck": {
+    "th": 20,
+    "localities": [
+      "Ettelbruck",
+      "Warken"
+    ]
+  },
+  "Feulen": {
+    "th": 20,
+    "localities": [
+      "Niederfeulen",
+      "Oberfeulen"
+    ]
+  },
+  "Fischbach": {
+    "th": 20,
+    "localities": [
+      "Fischbach",
+      "Angelsberg",
+      "Koedange",
+      "Schoos",
+      "Stuppicht",
+      "Weyer"
+    ]
+  },
+  "Flaxweiler": {
+    "th": 30,
+    "localities": [
+      "Flaxweiler",
+      "Beyren",
+      "Gostingen",
+      "Niederdonven",
+      "Oberdonven"
+    ]
+  },
+  "Frisange": {
+    "th": 33,
+    "localities": [
+      "Frisange",
+      "Aspelt",
+      "Hellange"
+    ]
+  },
+  "Garnich": {
+    "th": 32,
+    "localities": [
+      "Garnich",
+      "Dahlem",
+      "Hivange",
+      "Kahler"
+    ]
+  },
+  "Goesdorf": {
+    "th": 19,
+    "localities": [
+      "Goesdorf",
+      "Bockholtz",
+      "Buderscheid",
+      "Dahl",
+      "Dirbach",
+      "Masseler",
+      "Nocher",
+      "Nocher-Route"
+    ]
+  },
+  "Grevenmacher": {
+    "th": 33,
+    "localities": [
+      "Grevenmacher"
+    ]
+  },
+  "Grosbous": {
+    "th": 20,
+    "localities": [
+      "Grosbous",
+      "Dellen"
+    ]
+  },
+  "Heffingen": {
+    "th": 28,
+    "localities": [
+      "Heffingen",
+      "Reuland"
+    ]
+  },
+  "Helperknapp": {
+    "th": 20,
+    "localities": [
+      "Boevange-sur-Attert",
+      "Ansembourg",
+      "Bill",
+      "Bour",
+      "Brouch",
+      "Buschdorf",
+      "Finsterthal",
+      "Grevenknapp",
+      "Hollenfels",
+      "Marienthal",
+      "Openthalt",
+      "Tuntange"
+    ]
+  },
+  "Hesperange": {
+    "th": 33,
+    "localities": [
+      "Hesperange",
+      "Alzingen",
+      "Fentange",
+      "Howald",
+      "Itzig"
+    ]
+  },
+  "Habscht": {
+    "th": 32,
+    "localities": [
+      "Hobscheid",
+      "Eischen",
+      "Greisch",
+      "Roodt-sur-Eisch",
+      "Septfontaines"
+    ]
+  },
+  "Junglinster": {
+    "th": 29,
+    "localities": [
+      "Junglinster",
+      "Altlinster",
+      "Beidweiler",
+      "Blumenthal",
+      "Bourglinster",
+      "Eisenborn",
+      "Eschweiler",
+      "Godbrange",
+      "Gonderange",
+      "Graulinster",
+      "Imbringen",
+      "Rodenbourg"
+    ]
+  },
+  "Käerjeng": {
+    "th": 35,
+    "localities": [
+      "Bascharage",
+      "Clemency",
+      "Fingig",
+      "Hautcharage",
+      "Linger"
+    ]
+  },
+  "Kayl": {
+    "th": 35,
+    "localities": [
+      "Kayl",
+      "Tétange"
+    ]
+  },
+  "Kehlen": {
+    "th": 32,
+    "localities": [
+      "Kehlen",
+      "Dondelange",
+      "Keispelt",
+      "Meispelt",
+      "Nospelt",
+      "Olm"
+    ]
+  },
+  "Kiischpelt": {
+    "th": 19,
+    "localities": [
+      "Kautenbach",
+      "Alscheid",
+      "Enscherange",
+      "Lellingen",
+      "Merkholtz",
+      "Pintsch",
+      "Wilwerwiltz"
+    ]
+  },
+  "Koerich": {
+    "th": 32,
+    "localities": [
+      "Koerich",
+      "Goeblange",
+      "Goetzingen",
+      "Windhof"
+    ]
+  },
+  "Kopstal": {
+    "th": 32,
+    "localities": [
+      "Kopstal",
+      "Bridel"
+    ]
+  },
+  "Lac de la Haute-Sûre": {
+    "th": 15,
+    "localities": [
+      "Bavigne",
+      "Harlange",
+      "Kaundorf",
+      "Liefrange",
+      "Mecher",
+      "Nothum",
+      "Tarchamps",
+      "Watrange"
+    ]
+  },
+  "Larochette": {
+    "th": 28,
+    "localities": [
+      "Larochette",
+      "Ernzen"
+    ]
+  },
+  "Lenningen": {
+    "th": 31,
+    "localities": [
+      "Lenningen",
+      "Canach"
+    ]
+  },
+  "Leudelange": {
+    "th": 32,
+    "localities": [
+      "Leudelange"
+    ]
+  },
+  "Lintgen": {
+    "th": 20,
+    "localities": [
+      "Lintgen",
+      "Gosseldange",
+      "Prettingen"
+    ]
+  },
+  "Lorentzweiler": {
+    "th": 20,
+    "localities": [
+      "Lorentzweiler",
+      "Blaschette",
+      "Bofferdange",
+      "Helmdange",
+      "Hunsdorf"
+    ]
+  },
+  "Mamer": {
+    "th": 32,
+    "localities": [
+      "Mamer",
+      "Capellen",
+      "Holzem"
+    ]
+  },
+  "Manternach": {
+    "th": 30,
+    "localities": [
+      "Manternach",
+      "Berbourg",
+      "Lellig",
+      "Munschecker"
+    ]
+  },
+  "Mersch": {
+    "th": 21,
+    "localities": [
+      "Mersch",
+      "Beringen",
+      "Berschbach",
+      "Moesdorf",
+      "Pettingen",
+      "Reckange",
+      "Rollingen",
+      "Schoenfels"
+    ]
+  },
+  "Mertert": {
+    "th": 31,
+    "localities": [
+      "Mertert",
+      "Wasserbillig"
+    ]
+  },
+  "Mertzig": {
+    "th": 19,
+    "localities": [
+      "Mertzig"
+    ]
+  },
+  "Mondercange": {
+    "th": 34,
+    "localities": [
+      "Mondercange",
+      "Bergem",
+      "Foetz",
+      "Pontpierre"
+    ]
+  },
+  "Mondorf-les-Bains": {
+    "th": 33,
+    "localities": [
+      "Mondorf-les-Bains",
+      "Altwies",
+      "Ellange"
+    ]
+  },
+  "Niederanven": {
+    "th": 26,
+    "localities": [
+      "Niederanven",
+      "Ernster",
+      "Hostert",
+      "Oberanven",
+      "Rameldange",
+      "Senningen",
+      "Senningerberg",
+      "Waldhof"
+    ]
+  },
+  "Nommern": {
+    "th": 28,
+    "localities": [
+      "Nommern",
+      "Cruchten",
+      "Schrondweiler"
+    ]
+  },
+  "Parc Hosingen": {
+    "th": 19,
+    "localities": [
+      "Hosingen",
+      "Bockholtz",
+      "Consthum",
+      "Dorscheid",
+      "Holzthum",
+      "Hoscheid",
+      "Hoscheid-Dickt",
+      "Neidhausen",
+      "Oberschlinder",
+      "Rodershausen",
+      "Unterschlinder",
+      "Wahlhausen"
+    ]
+  },
+  "Pétange": {
+    "th": 36,
+    "localities": [
+      "Pétange",
+      "Lamadelaine",
+      "Rodange"
+    ]
+  },
+  "Préizerdaul": {
+    "th": 20,
+    "localities": [
+      "Bettborn",
+      "Platen",
+      "Pratz",
+      "Reimberg"
+    ]
+  },
+  "Putscheid": {
+    "th": 19,
+    "localities": [
+      "Putscheid",
+      "Bivels",
+      "Gralingen",
+      "Merscheid",
+      "Nachtmanderscheid",
+      "Stolzembourg",
+      "Weiler"
+    ]
+  },
+  "Rambrouch": {
+    "th": 20,
+    "localities": [
+      "Rambrouch",
+      "Arsdorf",
+      "Bigonville",
+      "Bilsdorf",
+      "Eschette",
+      "Folschette",
+      "Haut-Martelange",
+      "Holtz",
+      "Hostert",
+      "Koetschette",
+      "Perlé",
+      "Rombach",
+      "Schwiedelbrouch",
+      "Wolwelange"
+    ]
+  },
+  "Reckange-sur-Mess": {
+    "th": 33,
+    "localities": [
+      "Reckange-sur-Mess",
+      "Ehlange",
+      "Limpach",
+      "Pissange",
+      "Roedgen",
+      "Wickrange"
+    ]
+  },
+  "Redange-sur-Attert": {
+    "th": 20,
+    "localities": [
+      "Redange-sur-Attert",
+      "Eltz",
+      "Lannen",
+      "Nagem",
+      "Niederpallen",
+      "Ospern",
+      "Reichlange"
+    ]
+  },
+  "Reisdorf": {
+    "th": 20,
+    "localities": [
+      "Reisdorf",
+      "Bigelbach",
+      "Hoesdorf",
+      "Wallendorf-Pont"
+    ]
+  },
+  "Roeser": {
+    "th": 34,
+    "localities": [
+      "Roeser",
+      "Berchem",
+      "Bivange",
+      "Crauthem",
+      "Kockelscheuer",
+      "Livange",
+      "Peppange"
+    ]
+  },
+  "Rosport-Mompach": {
+    "th": 30,
+    "localities": [
+      "Rosport",
+      "Born",
+      "Dickweiler",
+      "Girst",
+      "Girsterklaus",
+      "Hinkel",
+      "Mompach",
+      "Moersdorf",
+      "Osweiler",
+      "Steinheim"
+    ]
+  },
+  "Rumelange": {
+    "th": 35,
+    "localities": [
+      "Rumelange"
+    ]
+  },
+  "Saeul": {
+    "th": 20,
+    "localities": [
+      "Saeul",
+      "Calmus",
+      "Ehner",
+      "Kapweiler",
+      "Schwebach"
+    ]
+  },
+  "Sandweiler": {
+    "th": 26,
+    "localities": [
+      "Sandweiler"
+    ]
+  },
+  "Sanem": {
+    "th": 35,
+    "localities": [
+      "Sanem",
+      "Belvaux",
+      "Ehlerange",
+      "Soleuvre"
+    ]
+  },
+  "Schengen": {
+    "th": 33,
+    "localities": [
+      "Schengen",
+      "Bech-Kleinmacher",
+      "Burmerange",
+      "Elvange",
+      "Emerange",
+      "Remerschen",
+      "Schwebsange",
+      "Wellenstein",
+      "Wintrange"
+    ]
+  },
+  "Schieren": {
+    "th": 20,
+    "localities": [
+      "Schieren"
+    ]
+  },
+  "Schifflange": {
+    "th": 35,
+    "localities": [
+      "Schifflange"
+    ]
+  },
+  "Schuttrange": {
+    "th": 26,
+    "localities": [
+      "Schuttrange",
+      "Munsbach",
+      "Neuhaeusgen",
+      "Schrassig",
+      "Uebersyren"
+    ]
+  },
+  "Stadtbredimus": {
+    "th": 32,
+    "localities": [
+      "Stadtbredimus",
+      "Greiveldange"
+    ]
+  },
+  "Steinfort": {
+    "th": 32,
+    "localities": [
+      "Steinfort",
+      "Grass",
+      "Hagen",
+      "Kleinbettingen"
+    ]
+  },
+  "Steinsel": {
+    "th": 20,
+    "localities": [
+      "Steinsel",
+      "Heisdorf",
+      "Mullendorf"
+    ]
+  },
+  "Strassen": {
+    "th": 32,
+    "localities": [
+      "Strassen"
+    ]
+  },
+  "Tandel": {
+    "th": 19,
+    "localities": [
+      "Tandel",
+      "Bastendorf",
+      "Bettel",
+      "Brandenbourg",
+      "Fouhren",
+      "Landscheid",
+      "Longsdorf",
+      "Walsdorf"
+    ]
+  },
+  "Troisvierges": {
+    "th": 18,
+    "localities": [
+      "Troisvierges",
+      "Basbellain",
+      "Biwisch",
+      "Drinklange",
+      "Goedange",
+      "Hautbellain",
+      "Huldange",
+      "Wilwerdange"
+    ]
+  },
+  "Useldange": {
+    "th": 20,
+    "localities": [
+      "Useldange",
+      "Everlange",
+      "Rippweiler",
+      "Schandel"
+    ]
+  },
+  "Vallée de l'Ernz": {
+    "th": 30,
+    "localities": [
+      "Medernach",
+      "Eppeldorf",
+      "Ermsdorf",
+      "Folkendange",
+      "Stegen"
+    ]
+  },
+  "Vianden": {
+    "th": 19,
+    "localities": [
+      "Vianden"
+    ]
+  },
+  "Vichten": {
+    "th": 20,
+    "localities": [
+      "Vichten",
+      "Michelbouch"
+    ]
+  },
+  "Wahl": {
+    "th": 20,
+    "localities": [
+      "Wahl",
+      "Buschrodt",
+      "Grevels",
+      "Heispelt",
+      "Kuborn",
+      "Rindschleiden"
+    ]
+  },
+  "Waldbillig": {
+    "th": 31,
+    "localities": [
+      "Waldbillig",
+      "Christnach",
+      "Freckeisen",
+      "Haller"
+    ]
+  },
+  "Waldbredimus": {
+    "th": 31,
+    "localities": [
+      "Waldbredimus",
+      "Ersange",
+      "Roedt",
+      "Trintange"
+    ]
+  },
+  "Walferdange": {
+    "th": 22,
+    "localities": [
+      "Walferdange",
+      "Bereldange",
+      "Helmsange"
+    ]
+  },
+  "Weiler-la-Tour": {
+    "th": 28,
+    "localities": [
+      "Weiler-la-Tour",
+      "Hassel",
+      "Syren"
+    ]
+  },
+  "Weiswampach": {
+    "th": 18,
+    "localities": [
+      "Weiswampach",
+      "Beiler",
+      "Binsfeld",
+      "Breidfeld",
+      "Holler",
+      "Leithum"
+    ]
+  },
+  "Wiltz": {
+    "th": 19,
+    "localities": [
+      "Wiltz",
+      "Eschweiler",
+      "Erpeldange",
+      "Knaphoscheid",
+      "Roullingen",
+      "Selscheid",
+      "Weidingen"
+    ]
+  },
+  "Wincrange": {
+    "th": 19,
+    "localities": [
+      "Wincrange",
+      "Asselborn",
+      "Boevange",
+      "Boxhorn",
+      "Brachtenbach",
+      "Deiffelt",
+      "Derenbach",
+      "Doennange",
+      "Hachiville",
+      "Hamiville",
+      "Hoffelt",
+      "Lullange",
+      "Niederwampach",
+      "Oberwampach",
+      "Rumlange",
+      "Sassel",
+      "Stockem",
+      "Troine",
+      "Troine-Route"
+    ]
+  },
+  "Winseler": {
+    "th": 19,
+    "localities": [
+      "Winseler",
+      "Berlé",
+      "Doncols",
+      "Groumelscheid",
+      "Noertrange",
+      "Pommerloch",
+      "Schleif",
+      "Soller"
+    ]
+  },
+  "Wormeldange": {
+    "th": 32,
+    "localities": [
+      "Wormeldange",
+      "Ahn",
+      "Dreiborn",
+      "Ehnen",
+      "Machtum"
+    ]
+  }
+}
