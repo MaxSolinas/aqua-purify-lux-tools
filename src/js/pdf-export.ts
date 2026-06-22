@@ -88,6 +88,16 @@ function formatDecimal(value: number, digits = 2): string {
     return value.toFixed(digits).replace('.', ',');
 }
 
+function resolveTechnicalSheetLink(result: PdfResult): string | undefined {
+    const directLink = result.specs?.link?.trim();
+    if (directLink) return directLink;
+
+    const normalizedModel = result.model.trim().toLocaleLowerCase('fr').replace(/\s+/g, ' ');
+    return Object.entries(TECHNICAL_SHEET_LINKS).find(([model]) =>
+        model.toLocaleLowerCase('fr').replace(/\s+/g, ' ') === normalizedModel
+    )?.[1];
+}
+
 function addWrappedText(
     doc: jsPDF,
     text: string,
@@ -329,24 +339,52 @@ export function generatePDF(projectRef: string, communeName: string, currentTH: 
         const occupantCount = apartmentCount * CONFIG.constants.personsPerApt;
         const dailyVolumeL = occupantCount * CONFIG.constants.consumptionPerPerson;
 
+        const columnCenters = [48.3, 105, 161.7];
         doc.setFillColor(246, 249, 251);
         doc.setDrawColor(...LIGHT_STEEL);
+        doc.setLineWidth(0.35);
         doc.roundedRect(20, 87, 170, 50, 2, 2, 'FD');
-        doc.setTextColor(45);
-        doc.setFont('helvetica', 'normal');
-        doc.text(`Bâtiment résidentiel collectif : ${apartmentCount} appartements / ${occupantCount} résidents estimés`, 25, currentY);
-        currentY += 7;
+
         doc.setFont('helvetica', 'bold');
+        doc.setFontSize(9.5);
         doc.setTextColor(...BLUE);
-        doc.text('Base de calcul : DIN 1988-300', 25, currentY);
+        doc.text('DIN 1988-300 - bâtiment résidentiel collectif', 105, 96, { align: 'center' });
+        doc.setDrawColor(...LIGHT_STEEL);
+        doc.line(25, 101, 185, 101);
+        doc.line(76.7, 104, 76.7, 123);
+        doc.line(133.3, 104, 133.3, 123);
+
         doc.setFont('helvetica', 'normal');
-        doc.setTextColor(45);
-        currentY += 7;
-        doc.text(`Somme des débits de calcul : ${apartmentCount} x ${formatDecimal(CONFIG.constants.vrPerApt)} = ${formatDecimal(sumDesignFlowLS)} L/s`, 25, currentY);
-        currentY += 7;
-        doc.text(`Débit de pointe : Vs = ${formatDecimal(CONFIG.constants.coefA)} x (${formatDecimal(sumDesignFlowLS)})^${formatDecimal(CONFIG.constants.coefB)} - ${formatDecimal(CONFIG.constants.coefC)} = ${formatDecimal(peakFlowLS)} L/s`, 25, currentY);
-        currentY += 7;
-        doc.text(`Soit ${formatDecimal(peakFlowM3H)} m³/h. Volume journalier : ${occupantCount} x ${CONFIG.constants.consumptionPerPerson} L = ${formatInteger(dailyVolumeL)} L (${formatDecimal(dailyVolumeL / 1000)} m³/jour).`, 25, currentY);
+        doc.setFontSize(7.8);
+        doc.setTextColor(105);
+        doc.text('Configuration', columnCenters[0], 108, { align: 'center' });
+        doc.text('Débit de pointe', columnCenters[1], 108, { align: 'center' });
+        doc.text('Volume journalier estimé', columnCenters[2], 108, { align: 'center' });
+
+        doc.setFont('helvetica', 'bold');
+        doc.setFontSize(11);
+        doc.setTextColor(...DEEP_SEA);
+        doc.text(`${apartmentCount} appartements`, columnCenters[0], 115, { align: 'center' });
+        doc.text(`${formatDecimal(peakFlowM3H)} m³/h`, columnCenters[1], 115, { align: 'center' });
+        doc.text(`${formatInteger(dailyVolumeL)} L/jour`, columnCenters[2], 115, { align: 'center' });
+
+        doc.setFont('helvetica', 'normal');
+        doc.setFontSize(7.5);
+        doc.setTextColor(85);
+        doc.text(`${occupantCount} résidents estimés`, columnCenters[0], 121, { align: 'center' });
+        doc.text(`${formatDecimal(peakFlowLS)} L/s`, columnCenters[1], 121, { align: 'center' });
+        doc.text(`${formatDecimal(dailyVolumeL / 1000)} m³/jour`, columnCenters[2], 121, { align: 'center' });
+
+        doc.setDrawColor(...LIGHT_STEEL);
+        doc.line(25, 126, 185, 126);
+        doc.setFontSize(7.2);
+        doc.setTextColor(100);
+        doc.text(
+            `Somme VR = ${apartmentCount} x ${formatDecimal(CONFIG.constants.vrPerApt)} = ${formatDecimal(sumDesignFlowLS)} L/s  |  Vs = ${formatDecimal(CONFIG.constants.coefA)} x (${formatDecimal(sumDesignFlowLS)})^${formatDecimal(CONFIG.constants.coefB)} - ${formatDecimal(CONFIG.constants.coefC)} = ${formatDecimal(peakFlowLS)} L/s`,
+            105,
+            132,
+            { align: 'center' }
+        );
         currentY = 143;
     } else {
         doc.setFont('helvetica', 'normal');
@@ -371,8 +409,8 @@ export function generatePDF(projectRef: string, communeName: string, currentTH: 
     doc.setFont('helvetica', 'bold');
     doc.text(currentResult.model, 105, boxY + 12, { align: 'center' });
 
+    const technicalSheetLink = resolveTechnicalSheetLink(currentResult);
     if (currentResult.specs) {
-        const technicalSheetLink = currentResult.specs.link || TECHNICAL_SHEET_LINKS[currentResult.model];
         doc.setFont('helvetica', 'normal');
         doc.setFontSize(10);
         doc.setTextColor(50);
