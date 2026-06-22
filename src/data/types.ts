@@ -11,6 +11,7 @@ export interface Produit {
     dims: string;
     pressure: string;
     temp: string;
+    link?: string;
 }
 
 export interface CommuneData {
