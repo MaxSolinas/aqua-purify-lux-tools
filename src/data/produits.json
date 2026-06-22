@@ -30,7 +30,7 @@
   {
     "limit": 4.7,
     "name": "Kinetico S250 OD XP / 2060s OD",
-    "maxSelectTH": 30,
+    "maxSelectTH": 35,
     "volLimit": 1.2,
     "resin": "39.6 L (2 x 19.8 L)",
     "flow1b": "4.7 m³/h",
