@@ -22,6 +22,7 @@ interface ReportPage2Data {
     reportID: string;
     reportDate: string;
     projectName: string;
+    locationName: string;
     hardnessF: number;
     dailyVolumeM3: number;
     apartmentCount: number;
@@ -202,7 +203,7 @@ function addReportPage2(doc: jsPDF, data: ReportPage2Data): void {
     doc.text(`Bilan pour ${data.projectName} :`, 25, y + 8);
     doc.setTextColor(35);
     doc.setFont('helvetica', 'normal');
-    const projectSummary = `Avec une eau mesurée à ${data.hardnessF.toFixed(1)} °f et une consommation estimée à ${data.dailyVolumeM3.toFixed(2)} m³/jour pour ${data.occupantCount} résidents, le système interceptera et évacuera environ ${formatInteger(limestoneKg)} kg de calcaire par an (exprimé en CaCO3).`;
+    const projectSummary = `Selon les données gouvernementales publiées sur data.public.lu, la dureté de l’eau à ${data.locationName} est de ${formatDecimal(data.hardnessF, 1)} °f. Pour une consommation estimée à ${formatDecimal(data.dailyVolumeM3)} m³/jour et ${data.occupantCount} résidents, le système interceptera et évacuera environ ${formatInteger(limestoneKg)} kg de calcaire par an (exprimé en CaCO3).`;
     addWrappedText(doc, projectSummary, 25, y + 14, 160, 4);
     y += 33;
 
@@ -268,9 +269,9 @@ function addReportPage2(doc: jsPDF, data: ReportPage2Data): void {
     doc.setFont('helvetica', 'normal');
     y = addWrappedText(doc, 'Certified Water Specialist par la WQA.', 54, y + 5, 136, 3.7);
     doc.setFont('helvetica', 'bold');
-    doc.text('Acteur local à Luxembourg', 54, y + 1);
+    doc.text('Entreprise locale', 54, y + 1);
     doc.setFont('helvetica', 'normal');
-    addWrappedText(doc, 'Une présence de proximité assurant au syndic réactivité, entretien et suivi technique de l’installation.', 54, y + 5, 136, 3.7);
+    addWrappedText(doc, 'Une présence de proximité assurant réactivité, entretien, et suivi technique de l’installation.', 54, y + 5, 136, 3.7);
 
     addReportFooter(doc, '2/2', 'Estimations issues des données saisies. Validation technique sur site requise avant toute offre définitive.');
 }
@@ -395,6 +396,7 @@ export function generatePDF(projectRef: string, communeName: string, currentTH: 
             reportID,
             reportDate: dateStr,
             projectName: projName,
+            locationName: communeName,
             hardnessF: Math.max(0, currentTH),
             dailyVolumeM3: Math.max(0, Number(currentResult.vol) || 0),
             apartmentCount,
