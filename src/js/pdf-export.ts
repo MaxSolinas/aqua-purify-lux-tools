@@ -79,6 +79,43 @@ function formatEuro(value: number): string {
     return `${Math.round(value).toLocaleString('fr-FR')} €`;
 }
 
+function addFinancialCard(
+    doc: jsPDF,
+    title: string,
+    items: Array<{ label: string; amount: string; text: string }>,
+    x: number,
+    y: number,
+    width: number,
+    height: number
+): void {
+    doc.setFillColor(248, 249, 250);
+    doc.setDrawColor(234, 234, 234);
+    doc.setLineWidth(0.3);
+    doc.roundedRect(x, y, width, height, 2, 2, 'FD');
+
+    doc.setFont('helvetica', 'bold');
+    doc.setFontSize(8.2);
+    doc.setTextColor(...BLUE);
+    doc.text(title, x + 5, y + 7);
+
+    let itemY = y + 13;
+    items.forEach(item => {
+        doc.setFillColor(...CYAN);
+        doc.circle(x + 5, itemY - 1, 0.7, 'F');
+        doc.setFont('helvetica', 'bold');
+        doc.setFontSize(7.2);
+        doc.setTextColor(55);
+        doc.text(item.label, x + 8, itemY);
+        doc.setTextColor(...CYAN);
+        doc.text(item.amount, x + 8, itemY + 3.5);
+        doc.setFont('helvetica', 'normal');
+        doc.setTextColor(68);
+        const lines = doc.splitTextToSize(item.text, width - 13) as string[];
+        doc.text(lines, x + 8, itemY + 7);
+        itemY += 7 + lines.length * 3 + 2;
+    });
+}
+
 function addReportPage2(doc: jsPDF, data: ReportPage2Data): void {
     const annualVolumeM3 = data.dailyVolumeM3 * 365;
     // 1 °f correspond à 10 mg/L de CaCO3, soit 10 g/m3.
@@ -102,70 +139,106 @@ function addReportPage2(doc: jsPDF, data: ReportPage2Data): void {
     doc.setLineWidth(0.7);
     doc.line(20, 17, 190, 17);
 
-    doc.setFontSize(8.5);
+    doc.setFontSize(8.2);
     doc.setTextColor(45);
-    let y = addSectionTitle(doc, '1. Retrait du calcaire : mesurable et vérifiable', 25);
+    let y = addSectionTitle(doc, '1. LE RETRAIT DU CALCAIRE : MESURABLE ET GARANTI', 25);
     doc.setFont('helvetica', 'normal');
     y = addWrappedText(
         doc,
-        "L'adoucissement par échange ionique retire de l'eau les minéraux responsables de l'entartrage. Son résultat se contrôle simplement par une mesure de dureté en sortie de l'installation.",
+        'Contrairement aux dispositifs "anticalcaires" magnétiques ou galvaniques, qui maintiennent le calcaire en suspension sans l’éliminer ni garantir le résultat, l’adoucisseur à échange ionique retire physiquement les minéraux incrustants. Son efficacité se vérifie par une simple analyse de l’eau.',
         20,
         y,
-        170
+        170,
+        3.8
     );
 
     doc.setFillColor(244, 247, 251);
-    doc.setDrawColor(...CYAN);
-    doc.setLineWidth(1.2);
-    doc.line(20, y + 2, 20, y + 19);
-    doc.rect(20, y + 2, 170, 17, 'F');
-    doc.setTextColor(35);
+    doc.rect(20, y + 2, 170, 22, 'F');
+    doc.setDrawColor(...BLUE);
+    doc.setLineWidth(1.4);
+    doc.line(20, y + 2, 20, y + 24);
+    doc.setFontSize(8.5);
+    doc.setTextColor(...BLUE);
     doc.setFont('helvetica', 'bold');
-    const projectSummary = `${data.projectName} : avec une eau à ${data.hardnessF.toFixed(1)} °f et une consommation estimée à ${data.dailyVolumeM3.toFixed(2)} m³/jour pour ${data.occupantCount} résidents, le système pourra intercepter environ ${limestoneKg.toLocaleString('fr-FR')} kg de CaCO3 par an.`;
-    addWrappedText(doc, projectSummary, 25, y + 7, 160, 4);
-    y += 25;
+    doc.text(`Bilan pour ${data.projectName} :`, 25, y + 8);
+    doc.setTextColor(35);
+    doc.setFont('helvetica', 'normal');
+    const projectSummary = `Avec une eau mesurée à ${data.hardnessF.toFixed(1)} °f et une consommation estimée à ${data.dailyVolumeM3.toFixed(2)} m³/jour pour ${data.occupantCount} résidents, le système interceptera et évacuera environ ${limestoneKg.toLocaleString('fr-FR')} kg de CaCO3 par an.`;
+    addWrappedText(doc, projectSummary, 25, y + 13, 160, 3.7);
+    y += 30;
 
-    y = addSectionTitle(doc, '2. Protection du bâtiment et économies potentielles', y);
+    y = addSectionTitle(doc, '2. BILAN FINANCIER : PROTECTION ET ÉCONOMIES ESTIMÉES', y);
     doc.setFont('helvetica', 'normal');
     doc.setTextColor(45);
+    doc.setFontSize(8.2);
     y = addWrappedText(
         doc,
-        `Pour ${data.apartmentCount} appartements, le scénario indicatif représente ${formatEuro(totalMin)} à ${formatEuro(totalMax)} par an, répartis entre charges communes et dépenses privatives. Ces montants ne constituent pas une garantie d'économie et doivent être ajustés aux contrats, équipements et habitudes réels.`,
+        `En protégeant ${data.apartmentCount} appartements, l’installation générera une économie globale estimée entre ${formatEuro(totalMin)} et ${formatEuro(totalMax)} par an pour l’ensemble du bâtiment, répartie entre charges communes et dépenses privatives.`,
         20,
         y,
-        170
+        170,
+        3.8
     ) + 2;
 
-    const columnY = y;
+    addFinancialCard(doc, 'POUR LA COPROPRIÉTÉ', [
+        {
+            label: 'Plomberie & appareils',
+            amount: `${formatEuro(savings.plumbing.min)} - ${formatEuro(savings.plumbing.max)}`,
+            text: 'Arrêt de l’entartrage, baisse des interventions d’urgence et durée de vie accrue des équipements communs.'
+        },
+        {
+            label: 'Énergie',
+            amount: `${formatEuro(savings.energy.min)} - ${formatEuro(savings.energy.max)}`,
+            text: 'Maintien du rendement des échangeurs thermiques, le tartre agissant comme un isolant.'
+        }
+    ], 20, y, 81, 49);
+    addFinancialCard(doc, 'POUR LES RÉSIDENTS', [
+        {
+            label: 'Savon & lessive',
+            amount: `${formatEuro(savings.detergents.min)} - ${formatEuro(savings.detergents.max)}`,
+            text: 'Pouvoir moussant accru et réduction possible de moitié des dosages de détergents.'
+        },
+        {
+            label: 'Entretien',
+            amount: `${formatEuro(savings.maintenance.min)} - ${formatEuro(savings.maintenance.max)}`,
+            text: 'Suppression de la corvée de détartrage et réduction des produits chimiques anticalcaires.'
+        }
+    ], 109, y, 81, 49);
+    y += 56;
+
+    doc.setFontSize(8.5);
+    y = addSectionTitle(doc, `3. POURQUOI LE ${data.model.toUpperCase()} ?`, y);
+    doc.setTextColor(45);
+    doc.setFontSize(8);
+    y = addWrappedText(doc, `Pour garantir une continuité de service irréprochable et maîtriser les charges communes de ${data.projectName}, ce modèle surpasse les standards du marché :`, 20, y, 170, 3.7) + 1;
+    y = addBullet(doc, 'Conception Duplex (eau douce 24h/24)', ` : équipé de colonnes de résine (${data.resinDescription}), le système assure la relève pendant la régénération, sans interruption de service.`, 20, y, 170);
+    y = addBullet(doc, 'Régénération à l’eau traitée', ' : l’appareil utilise de l’eau adoucie pour nettoyer ses résines et préserver leur efficacité.', 20, y, 170);
+    y = addBullet(doc, 'Consommation ajustée au strict minimum', ` : le fonctionnement volumétrique s’adapte à la présence réelle des ${data.occupantCount} résidents et ne régénère qu’en fonction des besoins.`, 20, y, 170);
+    y = addBullet(doc, 'Fiabilité 100 % autonome', ' : fonctionnement hydraulique sans électricité, sans carte électronique et sans reprogrammation après une coupure de courant. Certifications NSF et WQA selon le modèle.', 20, y, 170);
+
+    doc.setFontSize(8.5);
+    y = addSectionTitle(doc, '4. L’EXPERTISE AQUA PURIFY', y + 1);
+    doc.setFontSize(8);
+    doc.setTextColor(45);
+    doc.setDrawColor(...CYAN);
+    doc.setLineWidth(0.5);
+    doc.roundedRect(20, y - 2, 28, 18, 2, 2, 'S');
     doc.setFont('helvetica', 'bold');
-    doc.setTextColor(...CYAN);
-    doc.text('Copropriété', 20, columnY);
-    doc.text('Résidents', 107, columnY);
-    doc.setFontSize(8);
-    doc.setTextColor(45);
-    let leftY = columnY + 5;
-    leftY = addBullet(doc, `Plomberie (${formatEuro(savings.plumbing.min)} - ${formatEuro(savings.plumbing.max)})`, ' : moins d’entartrage et durée de vie potentiellement accrue des équipements communs.', 20, leftY, 80);
-    leftY = addBullet(doc, `Énergie (${formatEuro(savings.energy.min)} - ${formatEuro(savings.energy.max)})`, ' : rendement mieux préservé des échangeurs et équipements de production d’eau chaude.', 20, leftY, 80);
-    let rightY = columnY + 5;
-    rightY = addBullet(doc, `Savons (${formatEuro(savings.detergents.min)} - ${formatEuro(savings.detergents.max)})`, ' : réduction possible des dosages de savons, lessives et produits de soin.', 107, rightY, 83);
-    rightY = addBullet(doc, `Entretien (${formatEuro(savings.maintenance.min)} - ${formatEuro(savings.maintenance.max)})`, ' : moins de détartrage et de produits anticalcaires.', 107, rightY, 83);
-    y = Math.max(leftY, rightY) + 2;
-
-    doc.setFontSize(8.5);
-    y = addSectionTitle(doc, `3. Pourquoi le ${data.model} ?`, y);
-    doc.setTextColor(45);
-    doc.setFontSize(8);
-    y = addBullet(doc, 'Service continu', ` : configuration duplex avec ${data.resinDescription}; une colonne prend le relais pendant la régénération.`, 20, y, 170);
-    y = addBullet(doc, 'Régénération à l’eau traitée', ' : nettoyage des résines avec une eau adoucie pour préserver leurs performances.', 20, y, 170);
-    y = addBullet(doc, 'Pilotage volumétrique', ` : régénération déclenchée selon la consommation réelle des ${data.occupantCount} résidents, y compris lors des périodes d’absence.`, 20, y, 170);
-    y = addBullet(doc, 'Fonctionnement hydraulique', ' : sans alimentation électrique, sans programmation à rétablir après une coupure de courant.', 20, y, 170);
-
-    doc.setFontSize(8.5);
-    y = addSectionTitle(doc, '4. Expertise Aqua Purify', y + 1);
-    doc.setFontSize(8);
-    doc.setTextColor(45);
-    y = addBullet(doc, 'Compétence reconnue', ' : dimensionnement chimique et hydraulique réalisé par un Certified Water Specialist (WQA).', 20, y, 170);
-    addBullet(doc, 'Présence au Luxembourg', ' : accompagnement du syndic, mise en service, entretien et suivi technique de l’installation.', 20, y, 170);
+    doc.setFontSize(12);
+    doc.setTextColor(...BLUE);
+    doc.text('WQA', 34, y + 6, { align: 'center' });
+    doc.setFontSize(6);
+    doc.text('CERTIFIED', 34, y + 11, { align: 'center' });
+    doc.setFontSize(7.8);
+    doc.setTextColor(55);
+    doc.setFont('helvetica', 'bold');
+    doc.text('Certification internationale', 54, y + 1);
+    doc.setFont('helvetica', 'normal');
+    y = addWrappedText(doc, 'Spécialiste Certified Water Specialist par la WQA, pour un dimensionnement chimique et hydraulique validé par l’industrie.', 54, y + 5, 136, 3.5);
+    doc.setFont('helvetica', 'bold');
+    doc.text('Acteur local à Luxembourg', 54, y + 1);
+    doc.setFont('helvetica', 'normal');
+    addWrappedText(doc, 'Une présence de proximité assurant au syndic réactivité, entretien et suivi technique de l’installation.', 54, y + 5, 136, 3.5);
 
     doc.setFont('helvetica', 'italic');
     doc.setFontSize(7);
