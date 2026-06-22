@@ -47,7 +47,7 @@ function addWrappedText(
 
 function addSectionTitle(doc: jsPDF, title: string, y: number): number {
     doc.setFont('helvetica', 'bold');
-    doc.setFontSize(11.5);
+    doc.setFontSize(12);
     doc.setTextColor(...BLUE);
     doc.text(title, 20, y);
     doc.setDrawColor(...BLUE);
@@ -68,15 +68,19 @@ function addBullet(
     doc.circle(x + 1, y - 1, 0.8, 'F');
     doc.setFont('helvetica', 'bold');
     doc.text(label, x + 4, y);
-    const labelWidth = doc.getTextWidth(label) + 1.5;
     doc.setFont('helvetica', 'normal');
-    const lines = doc.splitTextToSize(text, width - labelWidth - 4) as string[];
-    doc.text(lines, x + 4 + labelWidth, y);
-    return y + Math.max(1, lines.length) * 4.1 + 1.2;
+    const body = text.replace(/^\s*:\s*/, '');
+    const lines = doc.splitTextToSize(body, width - 8) as string[];
+    doc.text(lines, x + 4, y + 3.8);
+    return y + 3.8 + Math.max(1, lines.length) * 3.6 + 1.8;
+}
+
+function formatInteger(value: number): string {
+    return Math.round(value).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ' ');
 }
 
 function formatEuro(value: number): string {
-    return `${Math.round(value).toLocaleString('fr-FR')} €`;
+    return `${formatInteger(value)} €`;
 }
 
 function addFinancialCard(
@@ -94,25 +98,26 @@ function addFinancialCard(
     doc.roundedRect(x, y, width, height, 2, 2, 'FD');
 
     doc.setFont('helvetica', 'bold');
-    doc.setFontSize(8.2);
+    doc.setFontSize(9);
     doc.setTextColor(...BLUE);
     doc.text(title, x + 5, y + 7);
 
-    let itemY = y + 13;
+    let itemY = y + 14;
     items.forEach(item => {
         doc.setFillColor(...CYAN);
         doc.circle(x + 5, itemY - 1, 0.7, 'F');
         doc.setFont('helvetica', 'bold');
-        doc.setFontSize(7.2);
+        doc.setFontSize(8);
         doc.setTextColor(55);
         doc.text(item.label, x + 8, itemY);
         doc.setTextColor(...CYAN);
-        doc.text(item.amount, x + 8, itemY + 3.5);
+        doc.text(item.amount, x + 8, itemY + 4);
         doc.setFont('helvetica', 'normal');
         doc.setTextColor(68);
+        doc.setFontSize(7.6);
         const lines = doc.splitTextToSize(item.text, width - 13) as string[];
-        doc.text(lines, x + 8, itemY + 7);
-        itemY += 7 + lines.length * 3 + 2;
+        doc.text(lines, x + 8, itemY + 8);
+        itemY += 8 + lines.length * 3.2 + 2.4;
     });
 }
 
@@ -139,7 +144,7 @@ function addReportPage2(doc: jsPDF, data: ReportPage2Data): void {
     doc.setLineWidth(0.7);
     doc.line(20, 17, 190, 17);
 
-    doc.setFontSize(8.2);
+    doc.setFontSize(9);
     doc.setTextColor(45);
     let y = addSectionTitle(doc, '1. LE RETRAIT DU CALCAIRE : MESURABLE ET GARANTI', 25);
     doc.setFont('helvetica', 'normal');
@@ -149,35 +154,35 @@ function addReportPage2(doc: jsPDF, data: ReportPage2Data): void {
         20,
         y,
         170,
-        3.8
+        4.2
     );
 
     doc.setFillColor(244, 247, 251);
-    doc.rect(20, y + 2, 170, 22, 'F');
+    doc.rect(20, y + 2, 170, 25, 'F');
     doc.setDrawColor(...BLUE);
     doc.setLineWidth(1.4);
-    doc.line(20, y + 2, 20, y + 24);
-    doc.setFontSize(8.5);
+    doc.line(20, y + 2, 20, y + 27);
+    doc.setFontSize(9.2);
     doc.setTextColor(...BLUE);
     doc.setFont('helvetica', 'bold');
     doc.text(`Bilan pour ${data.projectName} :`, 25, y + 8);
     doc.setTextColor(35);
     doc.setFont('helvetica', 'normal');
-    const projectSummary = `Avec une eau mesurée à ${data.hardnessF.toFixed(1)} °f et une consommation estimée à ${data.dailyVolumeM3.toFixed(2)} m³/jour pour ${data.occupantCount} résidents, le système interceptera et évacuera environ ${limestoneKg.toLocaleString('fr-FR')} kg de CaCO3 par an.`;
-    addWrappedText(doc, projectSummary, 25, y + 13, 160, 3.7);
-    y += 30;
+    const projectSummary = `Avec une eau mesurée à ${data.hardnessF.toFixed(1)} °f et une consommation estimée à ${data.dailyVolumeM3.toFixed(2)} m³/jour pour ${data.occupantCount} résidents, le système interceptera et évacuera environ ${formatInteger(limestoneKg)} kg de CaCO3 par an.`;
+    addWrappedText(doc, projectSummary, 25, y + 14, 160, 4);
+    y += 33;
 
     y = addSectionTitle(doc, '2. BILAN FINANCIER : PROTECTION ET ÉCONOMIES ESTIMÉES', y);
     doc.setFont('helvetica', 'normal');
     doc.setTextColor(45);
-    doc.setFontSize(8.2);
+    doc.setFontSize(9);
     y = addWrappedText(
         doc,
         `En protégeant ${data.apartmentCount} appartements, l’installation générera une économie globale estimée entre ${formatEuro(totalMin)} et ${formatEuro(totalMax)} par an pour l’ensemble du bâtiment, répartie entre charges communes et dépenses privatives.`,
         20,
         y,
         170,
-        3.8
+        4.1
     ) + 2;
 
     addFinancialCard(doc, 'POUR LA COPROPRIÉTÉ', [
@@ -191,7 +196,7 @@ function addReportPage2(doc: jsPDF, data: ReportPage2Data): void {
             amount: `${formatEuro(savings.energy.min)} - ${formatEuro(savings.energy.max)}`,
             text: 'Maintien du rendement des échangeurs thermiques, le tartre agissant comme un isolant.'
         }
-    ], 20, y, 81, 49);
+    ], 20, y, 81, 58);
     addFinancialCard(doc, 'POUR LES RÉSIDENTS', [
         {
             label: 'Savon & lessive',
@@ -203,22 +208,22 @@ function addReportPage2(doc: jsPDF, data: ReportPage2Data): void {
             amount: `${formatEuro(savings.maintenance.min)} - ${formatEuro(savings.maintenance.max)}`,
             text: 'Suppression de la corvée de détartrage et réduction des produits chimiques anticalcaires.'
         }
-    ], 109, y, 81, 49);
-    y += 56;
+    ], 109, y, 81, 58);
+    y += 66;
 
-    doc.setFontSize(8.5);
+    doc.setFontSize(9);
     y = addSectionTitle(doc, `3. POURQUOI LE ${data.model.toUpperCase()} ?`, y);
     doc.setTextColor(45);
-    doc.setFontSize(8);
-    y = addWrappedText(doc, `Pour garantir une continuité de service irréprochable et maîtriser les charges communes de ${data.projectName}, ce modèle surpasse les standards du marché :`, 20, y, 170, 3.7) + 1;
+    doc.setFontSize(8.5);
+    y = addWrappedText(doc, `Pour garantir une continuité de service irréprochable et maîtriser les charges communes de ${data.projectName}, ce modèle surpasse les standards du marché :`, 20, y, 170, 3.8) + 2;
     y = addBullet(doc, 'Conception Duplex (eau douce 24h/24)', ` : équipé de colonnes de résine (${data.resinDescription}), le système assure la relève pendant la régénération, sans interruption de service.`, 20, y, 170);
     y = addBullet(doc, 'Régénération à l’eau traitée', ' : l’appareil utilise de l’eau adoucie pour nettoyer ses résines et préserver leur efficacité.', 20, y, 170);
     y = addBullet(doc, 'Consommation ajustée au strict minimum', ` : le fonctionnement volumétrique s’adapte à la présence réelle des ${data.occupantCount} résidents et ne régénère qu’en fonction des besoins.`, 20, y, 170);
     y = addBullet(doc, 'Fiabilité 100 % autonome', ' : fonctionnement hydraulique sans électricité, sans carte électronique et sans reprogrammation après une coupure de courant. Certifications NSF et WQA selon le modèle.', 20, y, 170);
 
-    doc.setFontSize(8.5);
+    doc.setFontSize(9);
     y = addSectionTitle(doc, '4. L’EXPERTISE AQUA PURIFY', y + 1);
-    doc.setFontSize(8);
+    doc.setFontSize(8.5);
     doc.setTextColor(45);
     doc.setDrawColor(...CYAN);
     doc.setLineWidth(0.5);
@@ -229,16 +234,16 @@ function addReportPage2(doc: jsPDF, data: ReportPage2Data): void {
     doc.text('WQA', 34, y + 6, { align: 'center' });
     doc.setFontSize(6);
     doc.text('CERTIFIED', 34, y + 11, { align: 'center' });
-    doc.setFontSize(7.8);
+    doc.setFontSize(8.2);
     doc.setTextColor(55);
     doc.setFont('helvetica', 'bold');
     doc.text('Certification internationale', 54, y + 1);
     doc.setFont('helvetica', 'normal');
-    y = addWrappedText(doc, 'Spécialiste Certified Water Specialist par la WQA, pour un dimensionnement chimique et hydraulique validé par l’industrie.', 54, y + 5, 136, 3.5);
+    y = addWrappedText(doc, 'Spécialiste Certified Water Specialist par la WQA, pour un dimensionnement chimique et hydraulique validé par l’industrie.', 54, y + 5, 136, 3.7);
     doc.setFont('helvetica', 'bold');
     doc.text('Acteur local à Luxembourg', 54, y + 1);
     doc.setFont('helvetica', 'normal');
-    addWrappedText(doc, 'Une présence de proximité assurant au syndic réactivité, entretien et suivi technique de l’installation.', 54, y + 5, 136, 3.5);
+    addWrappedText(doc, 'Une présence de proximité assurant au syndic réactivité, entretien et suivi technique de l’installation.', 54, y + 5, 136, 3.7);
 
     doc.setFont('helvetica', 'italic');
     doc.setFontSize(7);
@@ -273,7 +278,7 @@ export function generatePDF(projectRef: string, communeName: string, currentTH: 
     doc.setLineWidth(0.5);
     doc.line(20, 47, 190, 47);
 
-    doc.setFontSize(14);
+    doc.setFontSize(13);
     doc.setTextColor(...BLUE);
     doc.text('1. Identification du Projet', 20, 60);
     doc.setFontSize(11);
@@ -312,7 +317,9 @@ export function generatePDF(projectRef: string, communeName: string, currentTH: 
 
     const boxY = currentY + 15;
     doc.setFillColor(245, 245, 245);
-    doc.rect(20, boxY, 170, 65, 'F');
+    doc.rect(20, boxY, 170, 55, 'F');
+    doc.setFillColor(...MAGENTA);
+    doc.rect(20, boxY, 2, 55, 'F');
 
     doc.setFontSize(16);
     doc.setTextColor(...BLUE);
@@ -335,7 +342,7 @@ export function generatePDF(projectRef: string, communeName: string, currentTH: 
 
         if (currentResult.specs.link) {
             const linkLabel = 'Voir la fiche technique';
-            const linkY = boxY + 55;
+            const linkY = boxY + 49;
             doc.setFont('helvetica', 'bold');
             doc.setTextColor(...BLUE);
             doc.textWithLink(linkLabel, 105, linkY, {
