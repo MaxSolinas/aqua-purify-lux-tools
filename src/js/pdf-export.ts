@@ -14,6 +14,7 @@ interface PdfResult {
         dims?: string;
         pressure?: string;
         temp?: string;
+        link?: string;
     } | null;
 }
 
@@ -258,6 +259,21 @@ export function generatePDF(projectRef: string, communeName: string, currentTH: 
         specY += 8;
         doc.text(`Pression : ${currentResult.specs.pressure ?? '-'}`, 30, specY);
         doc.text(`Température : ${currentResult.specs.temp ?? '-'}`, 110, specY);
+
+        if (currentResult.specs.link) {
+            const linkLabel = 'Voir la fiche technique';
+            const linkY = boxY + 55;
+            doc.setFont('helvetica', 'bold');
+            doc.setTextColor(...BLUE);
+            doc.textWithLink(linkLabel, 105, linkY, {
+                align: 'center',
+                url: currentResult.specs.link
+            });
+            const linkWidth = doc.getTextWidth(linkLabel);
+            doc.setDrawColor(...BLUE);
+            doc.setLineWidth(0.2);
+            doc.line(105 - linkWidth / 2, linkY + 1, 105 + linkWidth / 2, linkY + 1);
+        }
     }
 
     doc.setFontSize(9);
