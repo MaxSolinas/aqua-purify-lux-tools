@@ -182,6 +182,7 @@ function addReportPage2(doc: jsPDF, data: ReportPage2Data): void {
     doc.setTextColor(45);
     let y = addSectionTitle(doc, '1. Retrait du calcaire : mesurable et garanti', 45);
     doc.setFont('helvetica', 'normal');
+    doc.setFontSize(9);
     doc.setTextColor(45);
     y = addWrappedText(
         doc,
