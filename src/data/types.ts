@@ -13,3 +13,38 @@ export interface Produit {
     temp: string;
     link?: string;
 }
+
+export interface CommuneData {
+    th: number;
+    city?: string;
+    localities?: string[];
+}
+
+export interface MasterData {
+    [key: string]: CommuneData;
+}
+
+export interface Config {
+    contact: {
+        address: string;
+        phone: string;
+        web: string;
+        email: string;
+    };
+    apiGeoUrl: string;
+    constants: {
+        vrPerApt: number;
+        coefA: number;
+        coefB: number;
+        coefC: number;
+        consumptionPerPerson: number;
+        personsPerApt: number;
+    };
+}
+
+export interface SearchItem {
+    displayName: string;
+    searchName: string;
+    commune: string;
+    th: number;
+}
