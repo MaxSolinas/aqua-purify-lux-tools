@@ -11,7 +11,8 @@
     "conn": "1\"",
     "dims": "1041 x 381 x 178 mm",
     "pressure": "1.7 - 8.6 bar (dyn)",
-    "temp": "2 - 49° C"
+    "temp": "2 - 49° C",
+    "link": "https://www.aquapurify.lu/odoo/documents/tKKT0M_kTzO7KZ_v22-sLwo11d"
   },
   {
     "limit": 2.6,
@@ -25,7 +26,8 @@
     "conn": "1\"",
     "dims": "1168 x 432 x 203 mm",
     "pressure": "1.7 - 8.6 bar (dyn)",
-    "temp": "2 - 49° C"
+    "temp": "2 - 49° C",
+    "link": "https://www.aquapurify.lu/odoo/documents/XjdjKQJhSguLxN_d-pqxlwo11c"
   },
   {
     "limit": 4.7,
@@ -39,7 +41,8 @@
     "conn": "1-1/4\"",
     "dims": "1168 x 432 x 203 mm",
     "pressure": "1.7 - 8.6 bar (dyn)",
-    "temp": "2 - 49° C"
+    "temp": "2 - 49° C",
+    "link": "https://www.aquapurify.lu/odoo/documents/V07Yov1NRS6c_0RX4aQbMwo208"
   },
   {
     "limit": 2.7,
@@ -53,7 +56,8 @@
     "conn": "1-1/4\"",
     "dims": "1524 x 533 x 254 mm",
     "pressure": "1.7 - 8.6 bar (dyn)",
-    "temp": "2 - 49° C"
+    "temp": "2 - 49° C",
+    "link": "https://www.aquapurify.lu/odoo/documents/Vl0PrTVMQR2cmBLiw0O1bQo11b"
   },
   {
     "limit": 4.8,
@@ -67,7 +71,8 @@
     "conn": "1-1/4\"",
     "dims": "1524 x 533 x 254 mm",
     "pressure": "1.7 - 8.6 bar (dyn)",
-    "temp": "2 - 49° C"
+    "temp": "2 - 49° C",
+    "link": "https://www.aquapurify.lu/odoo/documents/msWYtYzaTUq0iLKxrQtd2Qo209"
   },
   {
     "limit": 3.7,
@@ -81,7 +86,8 @@
     "conn": "1-1/4\"",
     "dims": "1524 x 686 x 330 mm",
     "pressure": "1.7 - 8.6 bar (dyn)",
-    "temp": "2 - 49° C"
+    "temp": "2 - 49° C",
+    "link": "https://www.aquapurify.lu/odoo/documents/xAgLni0cQfaudSwrHurpLgo11a"
   },
   {
     "limit": 6.4,
@@ -95,7 +101,8 @@
     "conn": "1-1/4\"",
     "dims": "1524 x 686 x 330 mm",
     "pressure": "1.7 - 8.6 bar (dyn)",
-    "temp": "2 - 49° C"
+    "temp": "2 - 49° C",
+    "link": "https://www.aquapurify.lu/odoo/documents/4M79vDb4QBiITkmlL2G9Owoe7"
   },
   {
     "limit": 8,
@@ -109,7 +116,8 @@
     "conn": "1-1/4\"",
     "dims": "1803 x 838 x 406 mm",
     "pressure": "1.7 - 8.6 bar (dyn)",
-    "temp": "2 - 49° C"
+    "temp": "2 - 49° C",
+    "link": "https://www.aquapurify.lu/odoo/documents/oWLnegdYSXesfaZP9_nafwoe6"
   },
   {
     "limit": 12.8,
@@ -123,7 +131,8 @@
     "conn": "1-1/4\" (x2) / 2\"",
     "dims": "1524 x 991 x 686 mm",
     "pressure": "1.7 - 8.6 bar (dyn)",
-    "temp": "2 - 49° C"
+    "temp": "2 - 49° C",
+    "link": "https://www.aquapurify.lu/odoo/documents/7DkFGmhwTguBY1bK_QUMywo1e"
   },
   {
     "limit": 15.9,
@@ -137,7 +146,8 @@
     "conn": "1-1/4\" (x2) / 2\"",
     "dims": "1803 x 1219 x 838 mm",
     "pressure": "1.7 - 8.6 bar (dyn)",
-    "temp": "2 - 49° C"
+    "temp": "2 - 49° C",
+    "link": "https://www.aquapurify.lu/odoo/documents/n44xeYG6RRGR1DK5YUywvQo1d"
   },
   {
     "limit": 19.1,
@@ -151,7 +161,8 @@
     "conn": "1-1/4\" (x3) / 2-1/2\"",
     "dims": "1524 x 1651 x 686 mm",
     "pressure": "1.7 - 8.6 bar (dyn)",
-    "temp": "2 - 49° C"
+    "temp": "2 - 49° C",
+    "link": "https://www.aquapurify.lu/odoo/documents/49NIBhNFQ9OmKFainy1hZgo1c"
   },
   {
     "limit": 23.8,
@@ -165,7 +176,8 @@
     "conn": "1-1/4\" (x3) / 2-1/2\"",
     "dims": "1803 x 2032 x 838 mm",
     "pressure": "1.7 - 8.6 bar (dyn)",
-    "temp": "2 - 49° C"
+    "temp": "2 - 49° C",
+    "link": "https://www.aquapurify.lu/odoo/documents/v9MJlw4gSVCy6cwc73Eipgo1b"
   },
   {
     "limit": 15.5,
@@ -179,7 +191,8 @@
     "conn": "1-1/4\" (x4) / 3\"",
     "dims": "1524 x 2311 x 686 mm",
     "pressure": "1.7 - 8.6 bar (dyn)",
-    "temp": "2 - 49° C"
+    "temp": "2 - 49° C",
+    "link": "https://www.aquapurify.lu/odoo/documents/qyOctoruSXu3TBaSF3ZfhQo1a"
   },
   {
     "limit": 31.8,
@@ -193,6 +206,7 @@
     "conn": "1-1/4\" (x4) / 3\"",
     "dims": "1900 x 750 x 850 mm",
     "pressure": "1.7 - 8.6 bar (dyn)",
-    "temp": "2 - 49° C"
+    "temp": "2 - 49° C",
+    "link": "https://www.aquapurify.lu/odoo/documents/R2JS3DXKQ2KvCJ-92e6Aqgo19"
   }
 ]
